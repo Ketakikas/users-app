@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input,EventEmitter,Output } from '@angular/core';
 
 @Component({
   selector: 'app-user-info',
@@ -8,4 +8,18 @@ import { Component, Input } from '@angular/core';
 export class UserInfoComponent{
   @Input()
   user:any;
+  
+  @Output()
+  childEvent=new EventEmitter<any>();
+
+  @Output()
+  childevent1=new EventEmitter<any>();
+  
+  onBtnClick(){
+    this.childEvent.emit(this.user);
+  }
+
+  // changeVotes(elemet:HTMLInputElement){
+  //   this.user=elemet.value;
+  // }
 }

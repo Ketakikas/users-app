@@ -1,3 +1,4 @@
+<ng-content select="header"></ng-content>
 <div class="row">
     <div class="col-4">
         <p>Firstname:<input type="text" [(ngModel)]="user.firstname"/></p>
@@ -40,6 +41,7 @@
             Votes:   {{user.votes}}
               <!-- <input type="number" [value]="user.votes" (change)="user.votes=$event.target.value"/> -->
               <input type="number" [(ngModel)]="user.votes"/>
+              <!-- <input type="number" (change)="changeVotes($event.target)"/> -->
           </p>
     </div>
 </div>
@@ -47,7 +49,14 @@
     <div class="row">
         <div class="col-12">
             <p class="text-center">
-                <!-- <button class="btn btn-success" (click)="onMoreInfo(user);">More Info</button> -->
+                <!-- <button type="button" class="btn btn-success" (click)="onBtnClick();">More Info</button> -->
+                <Btn [text]="'More Info'" (btnClick)="onBtnClick()"></Btn>
+                <Btn [text]="'One Way'" (btnClick)="onBtnClick()"></Btn>
+                <Btn [text]="'Round Trip'" (btnClick)="onBtnClick()"></Btn>
+                <Btn [text]="'Multicity'" (btnClick)="onBtnClick()"></Btn>
             </p>
         </div>
     </div>
+    <ng-content></ng-content>
+    <ng-content select=".main-content"></ng-content>
+    <ng-content select="footer"></ng-content>

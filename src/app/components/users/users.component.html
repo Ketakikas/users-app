@@ -8,7 +8,12 @@
             <div class="card-body">
                 <div class="form-group">
                     <app-user-image [user]="user"></app-user-image>
-                    <app-user-info [user]="user"></app-user-info>
+                    <app-user-info [user]="user" (childEvent)="onMoreInfo(user);">
+                        <header>Header Info More</header><!--to sustain this, use ngContent-->
+                        <main class="main-content">This is main</main>
+                        <aside>Side bar info</aside>
+                        <footer>This is footer</footer>
+                    </app-user-info>
                 </div>
             </div>
         </div>

@@ -1,0 +1,14 @@
+button{
+    border-style: solid;
+    border-color: black;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: white;
+}
+button:hover{
+    border-style: solid;
+    border-color: maroon;
+    background-color: maroon;
+    color: white;
+}

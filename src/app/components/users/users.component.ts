@@ -27,8 +27,13 @@ export class UsersComponent{
         company:"Microsoft",
         hobbies:["Gaming","Dancing","Studying","Reading"],
         votes:100
-    }
+    };
+    
     onMoreInfo(user){
         alert(`${user.firstname} ${user.lastname} with votes ${user.votes}`);
     }
+
+    // changeVotes(){
+
+    // }
 }
