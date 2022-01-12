@@ -1,4 +1,5 @@
 import {Component, ViewEncapsulation} from '@angular/core';
+import { User } from 'src/app/model/user-model';
 
 @Component({
     selector:"app-users",
@@ -17,7 +18,7 @@ import {Component, ViewEncapsulation} from '@angular/core';
     encapsulation:ViewEncapsulation.Emulated
 })
 export class UsersComponent{
-    user={
+    user: User={
         pic:"https://cdn.britannica.com/47/188747-050-1D34E743/Bill-Gates-2011.jpg",
         firstname:"Bill",
         lastname:"Gates",
