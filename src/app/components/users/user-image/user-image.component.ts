@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { User } from 'src/app/model/user-model';
 
 @Component({
   selector: 'app-user-image',
@@ -7,5 +8,5 @@ import { Component, Input } from '@angular/core';
 })
 export class UserImageComponent{
   @Input()
-  user:any;
+  user:User;
 }

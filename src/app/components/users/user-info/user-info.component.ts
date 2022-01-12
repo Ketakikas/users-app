@@ -1,4 +1,5 @@
 import { Component, Input,EventEmitter,Output } from '@angular/core';
+import { User } from 'src/app/model/user-model';
 
 @Component({
   selector: 'app-user-info',
@@ -7,7 +8,7 @@ import { Component, Input,EventEmitter,Output } from '@angular/core';
 })
 export class UserInfoComponent{
   @Input()
-  user:any;
+  user:User;
   
   @Output()
   childEvent=new EventEmitter<any>();

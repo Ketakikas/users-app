@@ -1,14 +1,14 @@
 button{
     border-style: solid;
     border-color: black;
-    color: black;
+    color: white;
     font-size: 20px;
     font-weight: bold;
-    background-color: white;
+    background-color: goldenrod;
 }
 button:hover{
     border-style: solid;
     border-color: maroon;
-    background-color: maroon;
-    color: white;
+    background-color: yellow;
+    color: maroon;
 }
