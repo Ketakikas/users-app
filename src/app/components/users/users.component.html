@@ -1,2 +1,16 @@
-<h2>Custom Component</h2>
-<h4>Hello from Users Component</h4>
+
+<div class="row">
+    <div class="col-6 offset-3">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="text-center">Users Details</h4>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <app-user-image [user]="user"></app-user-image>
+                    <app-user-info [user]="user"></app-user-info>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
