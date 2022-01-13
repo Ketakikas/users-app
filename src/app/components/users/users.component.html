@@ -1,19 +1,31 @@
 
 <div class="row">
-    <div class="col-6 offset-3">
+    <div class="col-10 offset-1">
         <div class="card">
             <div class="card-header">
                 <h4 class="text-center">Users Details</h4>
             </div>
             <div class="card-body">
-                <div class="form-group">
-                    <app-user-image [user]="user"></app-user-image>
-                    <app-user-info [user]="user" (childEvent)="onMoreInfo(user);">
-                        <header>Header Info More</header><!--to sustain this, use ngContent-->
-                        <main class="main-content">This is main</main>
-                        <aside>Side bar info</aside>
-                        <footer>This is footer</footer>
-                    </app-user-info>
+                <div class="form-group" *ngFor="let user of users;index as i;first as isFirst;last as isLast;even as isEven">
+                    <div class="row">
+                        <div class="col">
+                            <app-user-image [user]="user"></app-user-image>
+                        </div>
+                        <div class="col">
+                            <app-user-info [user]="user" (childEvent)="onMoreInfo(user);" (addComment)="AddComment($event)">
+                                <!-- <header>Header Info More</header>to sustain this, use ngContent -->
+                                <!-- <main class="main-content">This is main</main> -->
+                                <!-- <aside>Side bar info</aside> -->
+                                <!-- <footer>This is footer</footer>  -->
+                            </app-user-info>
+                            <div class="row">
+                                Index: {{i}} | isFirst:{{isFirst}} | isLast:{{isLast}} | isEven:{{isEven}}
+                            </div>
+                            
+                        </div>
+                    </div>   
+                    
+                    <hr>
                 </div>
             </div>
         </div>

@@ -9,7 +9,9 @@ export class LifeCycleDemoComponent implements OnInit,OnChanges,DoCheck,AfterCon
 
   @Input()
   title: string;
-  constructor() { }
+  constructor() {
+    console.log('Constructor called!!');
+   }
   ngOnChanges(changes: SimpleChanges): void {
     console.log('onChanges',changes);
   }

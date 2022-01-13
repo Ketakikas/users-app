@@ -1,0 +1,10 @@
+<label>{{note.title}}</label>
+<input type="text" class="form-control" [(ngModel)]="note.title"/>
+<br/>
+<button class="btn btn-danger"
+(click)="DeleteNote()">Delete</button>
+&nbsp;
+&nbsp;
+&nbsp;
+<button class="btn btn-warning"
+(click)="EditNote()">Edit</button>

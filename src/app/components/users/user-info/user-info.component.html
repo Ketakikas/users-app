@@ -1,41 +1,49 @@
 <ng-content select="header"></ng-content>
 <div class="row">
-    <div class="col-4">
+    <div class="col">
         <p>Firstname:<input type="text" [(ngModel)]="user.firstname"/></p>
     </div>
-    <div class="col-4">
+    <div class="col">
         <p>Lastname:  <input type="text" [(ngModel)]="user.lastname"/></p>
     </div>
-    <div class="col-4">
+    
+</div>
+<div class="row">
+    <div class="col">
         <p> 
             <!-- <input type="radio" [checked]="user.isWorking"/>Is Working  -->
             <input type="radio" [(ngModel)]="user.isWorking"/>Is Working
         </p>
     </div>
-</div>
-<div class="row">
-    <div class="col">
+    <div class="col" *ngIf="user.isWorking;else notWorking" >
         <p>Income: $<input type="number" [(ngModel)]="user.income"/></p>
     </div>
+    
+</div>
+<ng-template #notWorking>
+    <p>Mr. {{user.lastname}} is not working now</p>
+</ng-template>
+<div class="row">
     <div class="col">
         <p>Date of Birth: <span [innerHTML]="user.dob"></span></p>
     </div>
-</div>
-<div class="row">
-    <div class="col">
-        <p>Hobbies: 
+    <!-- <div class="col"> -->
+        <!-- <p>Hobbies:  -->
             <!-- <select>
             <option value="1">{{user.hobbies[0]}}</option>
             <option value="2">{{user.hobbies[1]}}</option>
             <option value="3">{{user.hobbies[2]}}</option>
             <option value="4">{{user.hobbies[3]}}</option>
         </select> -->
-        <input type="checkbox" checked/>{{user.hobbies[0]}}
-        <input type="checkbox" checked/>{{user.hobbies[1]}}
-        <input type="checkbox" checked/>{{user.hobbies[2]}}
-        <input type="checkbox" checked/>{{user.hobbies[3]}}
-        </p>
-    </div>
+        <!-- <input type="checkbox" checked/>{{user.hobbies[0]}} -->
+        <!-- <input type="checkbox" checked/>{{user.hobbies[1]}} -->
+        <!-- <input type="checkbox" checked/>{{user.hobbies[2]}} -->
+        <!-- <input type="checkbox" checked/>{{user.hobbies[3]}} -->
+        <!-- </p> -->
+    <!-- </div> -->
+    
+</div>
+<div class="row">
     <div class="col">
         <p>
             Votes:   {{user.votes}}
@@ -44,19 +52,41 @@
               <!-- <input type="number" (change)="changeVotes($event.target)"/> -->
           </p>
     </div>
-</div>
-    
+</div>    
     <div class="row">
         <div class="col-12">
             <p class="text-center">
                 <!-- <button type="button" class="btn btn-success" (click)="onBtnClick();">More Info</button> -->
                 <Btn [text]="'More Info'" (btnClick)="onBtnClick()"></Btn>
-                <Btn [text]="'One Way'" (btnClick)="onBtnClick()"></Btn>
+                <!-- <Btn [text]="'One Way'" (btnClick)="onBtnClick()"></Btn>
                 <Btn [text]="'Round Trip'" (btnClick)="onBtnClick()"></Btn>
-                <Btn [text]="'Multicity'" (btnClick)="onBtnClick()"></Btn>
+                <Btn [text]="'Multicity'" (btnClick)="onBtnClick()"></Btn> -->
             </p>
         </div>
     </div>
     <ng-content></ng-content>
     <ng-content select=".main-content"></ng-content>
     <ng-content select="footer"></ng-content>
+<!-- Switch case  -->
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link" (click)="tab=1">comments</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" (click)="tab=2">Add new comments</a>
+    </li>
+</ul>
+    <div [ngSwitch]="tab">
+        <div *ngSwitchCase="1">
+            <ul class="list-group" *ngIf="user.comments.length>0; else noComment">
+                <li class="list-group-item" *ngFor="let comm of comments">
+                    <app-comment-item [comment]="comm"></app-comment-item>
+                    </li>
+                    </ul>
+        </div>
+        <div *ngSwitchCase="2">
+            <app-add-comment [onAddEvent]="AddComment($event)"></app-add-comment>
+        </div>
+        <div *ngSwitchDefault="">Select any above links</div>
+    </div>
+    

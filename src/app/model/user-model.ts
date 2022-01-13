@@ -1,3 +1,5 @@
+import {Comment} from './comments.model';
+
 export interface User{
     pic:string;
     firstname:string;
@@ -8,4 +10,5 @@ export interface User{
     company:string;
     hobbies:string[];
     votes:number;
+    comments:Comment[]
 }

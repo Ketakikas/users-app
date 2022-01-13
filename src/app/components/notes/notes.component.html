@@ -1,0 +1,11 @@
+<div class="row">
+    <app-notes-item *ngFor="let note of notes" [note]="note" (childevent)="onSelectNote($event)"></app-notes-item>
+    <!-- <app-notes-item [note]="notes[1]" (childevent)="onSelectNote($event)"></app-notes-item> -->
+    <!-- <app-notes-item [note]="notes[2]" (childevent)="onSelectNote($event)"></app-notes-item> -->
+    <!-- <app-notes-item [note]="notes[3]" (childevent)="onSelectNote($event)"></app-notes-item> -->
+  </div>
+  <div class="row" *ngIf="showEdit">
+      <div class="col text-center">
+          <app-notes-edit [note]="selectedNote" (onDeleteEvent)="onDeleteNote($event)" (onEditEvent)="onEditNote($event)"></app-notes-edit>
+      </div>
+  </div>

@@ -1,0 +1,14 @@
+<p app-highlight [favcolor]="'aqua'">directive-demo works!</p>
+
+<button [ngClass]="{btn: showPara===true}" (click)="showPara=!showPara">Toggle</button>
+<p *ngIf="showPara">Toggling this p</p>
+<ng-template [ngIf]="showPara">
+    <p>Toggling this p</p>
+</ng-template>
+
+
+<p *appUnless="!showPara">Unless directive in action</p>
+
+<ng-template [appUnless]="!showPara">
+    <p>Unless directive in action</p>
+</ng-template>

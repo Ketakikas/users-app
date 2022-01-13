@@ -1,5 +1,6 @@
 import { Component, Input,EventEmitter,Output } from '@angular/core';
 import { User } from 'src/app/model/user-model';
+import {Comment} from 'src/app/model/comments.model';
 
 @Component({
   selector: 'app-user-info',
@@ -9,7 +10,7 @@ import { User } from 'src/app/model/user-model';
 export class UserInfoComponent{
   @Input()
   user:User;
-  
+  tab:number=1;
   @Output()
   childEvent=new EventEmitter<any>();
 
@@ -23,4 +24,9 @@ export class UserInfoComponent{
   // changeVotes(elemet:HTMLInputElement){
   //   this.user=elemet.value;
   // }
+  AddComment(comment:Comment){
+    this.user.comments.push(comment);
+     this.tab = 1;
+  }
+  
 }
