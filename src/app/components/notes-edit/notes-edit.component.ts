@@ -19,7 +19,7 @@ export class NotesEditComponent implements OnInit,OnChanges {
   }
   EditNote(){
     console.log("emmitting "+this.note);
-    this.onDeleteEvent.emit(this.note);
+    this.onEditEvent.emit(this.note);
   }
   ngOnChanges(changes: SimpleChanges): void {  
   }

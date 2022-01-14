@@ -1,3 +1,18 @@
+<label class="addNote" (click)="showAdd=!showAdd">Add New Item</label>
+<div class="row"  *ngIf="showAdd" >
+    <div class="card" style="width: 100%;">
+        <div class="card-header">
+            <h6>Add Note</h6>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col">
+                    <app-add-notes  (onAddNote)="AddNote($event)"></app-add-notes>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="row">
     <app-notes-item *ngFor="let note of notes" [note]="note" (childevent)="onSelectNote($event)"></app-notes-item>
     <!-- <app-notes-item [note]="notes[1]" (childevent)="onSelectNote($event)"></app-notes-item> -->

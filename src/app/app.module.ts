@@ -17,6 +17,8 @@ import { AddCommentComponent } from './components/users/add-comment/add-comment.
 import { DirectiveDemoComponent } from './components/directive-demo/directive-demo.component';
 import {HighlightDirectiveDirective} from './directives/highlight-directive.directive';
 import { UnlessDirective } from './directives/unless.directive';
+import { PipeDemoComponent } from './components/pipe-demo/pipe-demo.component';
+import { AddNotesComponent } from './components/add-notes/add-notes.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { UnlessDirective } from './directives/unless.directive';
     AddCommentComponent,
     DirectiveDemoComponent,
     HighlightDirectiveDirective,
-    UnlessDirective
+    UnlessDirective,
+    PipeDemoComponent,
+    AddNotesComponent
   ],
   imports: [
     BrowserModule,

@@ -11,6 +11,7 @@ export class NotesComponent implements OnInit{
   notes:string[];
   selectedNote:SeletceNote;
   showEdit:boolean=false;
+  showAdd:boolean;
   ngOnInit(): void {
     this.notes=titles;
   }
@@ -23,10 +24,16 @@ export class NotesComponent implements OnInit{
   onDeleteNote(note:SeletceNote){
     console.log(note.id+" to be deleted with value "+note.title);
     this.notes.splice(note.id,1);
+    this.showEdit=false;
   }
   onEditNote(note:SeletceNote){
     console.log(note.id+" to be edited with value "+note.title);
     this.notes[note.id]=note.title;
+    this.showEdit=false;
+  }
+  AddNote(note:string){
+    this.notes.push(note);
+    this.showEdit=false;
   }
 }
 

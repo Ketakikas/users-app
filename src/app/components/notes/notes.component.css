@@ -1,11 +1,6 @@
-label{
+.addNote{
     border-style: solid;
     padding: 16px;
-    background-color: palevioletred;
-    color: white;
-}
-label:hover{
-    cursor:pointer;
-    background-color: pink;
+    background-color:aqua;
     color: black;
 }
