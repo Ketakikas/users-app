@@ -7,12 +7,13 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  message:string;
   constructor() { }
 
   ngOnInit(): void {
   }
   onSubmit(loginForm:NgForm){
+    this.message="Form submitted!!";
     console.log(loginForm);
   }
   onReset(loginForm:NgForm){

@@ -4,3 +4,9 @@ input.ng-touched.ng-invalid{
 input.ng-touched.ng-valid{
     border-bottom:3px green solid;
 }
+select.ng-touched.ng-invalid{
+    border-bottom:3px red solid;
+}
+select.ng-touched.ng-valid{
+    border-bottom:3px green solid;
+}

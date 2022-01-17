@@ -8,12 +8,73 @@
                 <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
                     <div class="form-group">
                         <label for="email">Email:</label>
-                        <input type="email" required email class="form-control" name="email" ngModel/>
+                        <input type="email" required email class="form-control" name="email" ngModel #email="ngModel"/>
+                        Email:{{email.value}}
+                        status:{{email.valid}}
+                        touched: {{email.touched}}
+                        error: {{email.errors | json}}
+                        invalid: {{email.invalid}}
+                        <div [hidden]="email.valid || email.untouched">
+                            <div *ngIf="email.errors">
+                                <p class="alert alert-danger" [hidden]="!email.errors.required">
+                                    Email is mandatory field.
+                                </p>
+                                <p class="alert alert-danger" [hidden]="!email.errors.email">
+                                    Please enter valid email.
+                                </p>
+                            </div>
+                            <p class="alert alert-danger">
+                                Some issue with email.
+                            </p>
+                        </div>
+                        <!-- <span class="text-danger" *ngIf=" && email.value!=''">
+                            Enter the valid email.
+                        </span>
+                        <span class="text-danger" *ngIf="email.errors!==null && email.touched && email.value===''">
+                            Please enter the email
+                        </span> -->
                     </div>
                     <div class="form-group">
                         <label for="password">Password:</label>
-                        <input type="password" required minlength="6" class="form-control" name="password" ngModel/>
+                        <input type="password" required minlength="6" class="form-control" name="password" ngModel #password="ngModel"/>
+                        <div [hidden]="password.valid || password.untouched">
+                            <div *ngIf="password.errors">
+                                <p class="alert alert-danger" [hidden]="!password.errors.required">
+                                    Password is mandatory field.
+                                </p>
+                                <p class="alert alert-danger" [hidden]="!password.errors.password">
+                                    Please enter valid password.
+                                </p>
+                            </div>
+                            <p class="alert alert-danger">
+                                Some issue with password.
+                            </p>
+                        </div>
                     </div>
+                    <div class="form-group">
+                        <label for="role">Role:</label>
+                        <select name="selRole" class="form-control" required ngModel #role="ngModel">
+                            <option value="">Select Role</option>
+                            <option value="Admin">Admin</option>
+                            <option value="Doctor">Doctor</option>
+                            <option value="Nurse">Nurse</option>
+                            <option value="Patient">Patient</option>
+                        </select>
+                        <div [hidden]="role.valid || role.untouched">
+                            <div *ngIf="role.errors">
+                                <p class="alert alert-danger" [hidden]="!role.errors.required">
+                                    Role is mandatory field.
+                                </p>
+                                <p class="alert alert-danger" [hidden]="!role.errors.role">
+                                    Please select valid role.
+                                </p>
+                            </div>
+                            <p class="alert alert-danger">
+                                Some issue with role.
+                            </p>
+                        </div>
+                    </div>
+
                     <div class="row">
                         <div class="col-6 text-center">
                             <button [disabled]="loginForm.invalid" class="btn btn-success">Login</button>
@@ -23,7 +84,8 @@
                         </div>
                     </div>
                 </form>
-                Form Status: {{loginForm.valid}}
+                <!-- to check status of login form
+                    Form Status: {{loginForm.valid}} --> 
             </div>
         </div>
     </div>
