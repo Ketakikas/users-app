@@ -34,6 +34,7 @@ export class NotesComponent implements OnInit{
   AddNote(note:string){
     this.notes.push(note);
     this.showEdit=false;
+    this.showAdd=false;
   }
 }
 

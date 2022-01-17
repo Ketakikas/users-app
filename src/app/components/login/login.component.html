@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col-6 offset-3">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="text-center">Login</h5>
+            </div>
+            <div class="card-body">
+                <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" required email class="form-control" name="email" ngModel/>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" required minlength="6" class="form-control" name="password" ngModel/>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 text-center">
+                            <button [disabled]="loginForm.invalid" class="btn btn-success">Login</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-warning" type="button" (click)="onReset(loginForm)">Reset</button>
+                        </div>
+                    </div>
+                </form>
+                Form Status: {{loginForm.valid}}
+            </div>
+        </div>
+    </div>
+</div>

@@ -19,6 +19,11 @@ import {HighlightDirectiveDirective} from './directives/highlight-directive.dire
 import { UnlessDirective } from './directives/unless.directive';
 import { PipeDemoComponent } from './components/pipe-demo/pipe-demo.component';
 import { AddNotesComponent } from './components/add-notes/add-notes.component';
+import { CountryCode } from './pipes/country-code.pipe';
+import { ReverseStringPipe } from './pipes/reverse-string.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
+import { SortPipe } from './pipes/sort.pipe';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +43,12 @@ import { AddNotesComponent } from './components/add-notes/add-notes.component';
     HighlightDirectiveDirective,
     UnlessDirective,
     PipeDemoComponent,
-    AddNotesComponent
+    AddNotesComponent,
+    CountryCode,
+    ReverseStringPipe,
+    FilterPipe,
+    SortPipe,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

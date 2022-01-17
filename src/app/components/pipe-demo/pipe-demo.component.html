@@ -1,3 +1,39 @@
 <p>pipe-demo works!</p>
 
 <h5>Promise Data : {{ promise | async}} </h5>
+<h5>Contact Number: {{contactNumber | countryCode:'IN'}}</h5>
+
+<h5>Reverse of string {{myName}} is {{myName | reverseString}}</h5>
+<hr>
+<h5>Filtering data using custom pipes</h5>
+<div class="row">
+    <div class="col-4">
+      <select name="selTodo" class="form-control" [(ngModel)]="filteredStatus">
+          <option value="">Select value</option>
+        <option value="pending">Pending Task</option>
+        <option value="completed">Completed Task</option>
+        <option value="inprogress">In Progress</option>
+      </select>
+    </div>
+    <div class="col-4">
+      <button class="btn btn-primary btn-block" (click)="onAddNewTodo()">Add Todo</button>
+    </div>
+    <div class="col-4">
+        <select name="sortBy" class="form-control" [(ngModel)]="sortBy">
+            <option value="">Sort By</option>
+            <option value="asc">Ascending Order</option>
+            <option value="desc">Descending Order</option>
+        </select>
+    </div>
+  </div>
+  
+  <br>
+  
+  <ul class="list-group" *ngIf="todoCollection.length!==0; else noShowTemplate">
+    <li *ngFor="let todo of todoCollection | filter : filteredStatus | sort : sortBy" class="list-group-item">
+      {{todo.label}} <span class="float-right badge badge-primary">{{todo.status}}</span>
+    </li>
+  </ul>
+  <ng-template #noShowTemplate>
+      <h6>No Items found</h6>
+  </ng-template>
