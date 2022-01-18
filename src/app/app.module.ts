@@ -25,6 +25,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { SortPipe } from './pipes/sort.pipe';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { EmployeeRegisterComponent } from './components/employee-register/employee-register.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { RegisterComponent } from './components/register/register.component';
     FilterPipe,
     SortPipe,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    EmployeeRegisterComponent
   ],
   imports: [
     BrowserModule,

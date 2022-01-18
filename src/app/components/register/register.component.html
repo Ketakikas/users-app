@@ -5,24 +5,94 @@
                 <h4 class="text-center">Register Now</h4>
             </div>
             <div class="card-body">
-                <form  [formGroup]="registrationForm" (ngSubmit)="onRegister()">
+                <form  [formGroup]="registrationForm" (ngSubmit)="registrationForm.valid && onRegister()">
                     <div class="form-group">
                         <label for="username">Username:</label>
                         <input type="text" name="username" class="form-control" formControlName="username"/>
+                        <div [hidden]="username.valid || username.untouched">
+                            <!-- {{username.valid}} and {{username.touched}} -->
+                            <p class="alert alert-danger" [hidden]="!username.hasError('required')">username is mandatory.</p>
+                            <p class="alert alert-danger" [hidden]="!username.hasError('email')">username must be in proper email format.</p>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="password">Password:</label>
                         <input type="password" name="password" class="form-control" formControlName="password"/>
+                        <div [hidden]="password.valid || password.untouched">
+                            <!-- {{password.valid}} and {{password.touched}} -->
+                            <p class="alert alert-danger" [hidden]="!password.hasError('required')">password is mandatory.</p>
+                            <p class="alert alert-danger" [hidden]="!password.hasError('hasExclamation')">password must have symbol !.</p>
+                            <p class="alert alert-danger" [hidden]="password.hasError('minLength')">password must be minimum 6 characters.</p>
+                            
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="cpassword">Confirm Password:</label>
+                        <input type="password" name="cpassword" class="form-control" formControlName="confirmPassword"/>
+                        <div [hidden]="password.valid || password.untouched">
+                            <!-- {{password.valid}} and {{password.touched}} -->
+                            <p class="alert alert-danger" [hidden]="!password.hasError('required')">password is mandatory.</p>
+                            <p class="alert alert-danger" [hidden]="!password.hasError('hasExclamation')">password must have symbol !.</p>
+                            <p class="alert alert-danger" [hidden]="password.hasError('minLength')">password must be minimum 6 characters.</p>
+                            <p class="alert alert-danger" [hidden]="password.hasError('comparePassword')">password and confirm password must be same.</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-dark" (click)="addBook()">Add Book</button>
+                        <br/><br/>
+                        {{books.value | json}}
+                        <br/><br>
+                        <div formArrayName="books">
+                            <div *ngFor="let book of books.controls;index as i">
+                                <input type="text" class="form-control" [formControlName]="i"/>
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <div class="row">
                             <div class="col">
+                                <!-- <button class="btn btn-success" type="submit" [disabled]="!registrationForm.valid">Register</button> -->
                                 <button class="btn btn-success" type="submit">Register</button>
-                                <button type="button" class="btn btn-warning">Reset</button>
+                                <button type="button" class="btn btn-warning"(click)="onReset()">Reset</button>
                             </div>
                         </div>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<hr>
+<br>
+<div class="row">
+    <div class="col">
+        <button class="btn btn-dark" (click)="addCourse()">Add Course</button>
+        <br/>
+        {{courses.value | json}}
+        <br/>
+        <br/>
+        <div *ngFor="let course of courses.controls; index as i">
+            <input type="text" formControlName="courses.control[i]"/>
+            <button class="btn btn-danger" (click)="deleteCourse(i)">Delete</button>
+        </div>
+    </div>
+</div>
+
+<br>
+<hr>
+<br>
+<div class="row">
+    <div class="col">
+        <button class="btn btn-dark" (click)="addHobby()">Add Hobby</button>
+        <br/>
+        {{hobbies.value | json}}
+        <br>
+        <br>
+        <div *ngFor="let hobby of hobbies.controls">
+            <div [formGroup]="hobby">
+                <input type="text" formControlName="hobbyName"/>
+                <input type="text" formControlName="frequency"/>
             </div>
         </div>
     </div>
