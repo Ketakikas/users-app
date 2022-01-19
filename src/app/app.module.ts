@@ -29,6 +29,9 @@ import { EmployeeRegisterComponent } from './components/employee-register/employ
 import { UserService } from './services/user.service';
 import { CounterComponent } from './components/counter/counter.component';
 import { ObservableDemoComponent } from './components/observable-demo/observable-demo.component';
+import { CustomoperatorObervableComponent } from './components/customoperator-obervable/customoperator-obervable.component';
+import { ObservableOperatorsComponent } from './components/observable-operators/observable-operators.component';
+import { SubjectsDemoComponent } from './components/subjects-demo/subjects-demo.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +60,10 @@ import { ObservableDemoComponent } from './components/observable-demo/observable
     RegisterComponent,
     EmployeeRegisterComponent,
     CounterComponent,
-    ObservableDemoComponent
+    ObservableDemoComponent,
+    CustomoperatorObervableComponent,
+    ObservableOperatorsComponent,
+    SubjectsDemoComponent
   ],
   imports: [
     BrowserModule,
