@@ -19,7 +19,8 @@ import { CounterService } from 'src/app/services/counter.service';
     // `]
     templateUrl:"./users.component.html",
     styleUrls:['./users.component.css'],
-    encapsulation:ViewEncapsulation.Emulated
+    encapsulation:ViewEncapsulation.Emulated,
+    //providers:[CounterService]//the scope of this service will be different from the service registered at root level. both don't share same copy.
 })
 export class UsersComponent implements OnInit{
     users: User[];
