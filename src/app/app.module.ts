@@ -28,6 +28,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { EmployeeRegisterComponent } from './components/employee-register/employee-register.component';
 import { UserService } from './services/user.service';
 import { CounterComponent } from './components/counter/counter.component';
+import { ObservableDemoComponent } from './components/observable-demo/observable-demo.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { CounterComponent } from './components/counter/counter.component';
     LoginComponent,
     RegisterComponent,
     EmployeeRegisterComponent,
-    CounterComponent
+    CounterComponent,
+    ObservableDemoComponent
   ],
   imports: [
     BrowserModule,
