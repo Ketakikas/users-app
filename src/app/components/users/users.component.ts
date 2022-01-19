@@ -22,12 +22,12 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UsersComponent implements OnInit{
     users: User[];
-    constructor(private userService:UserService){
+    constructor(private userService:UserService){//injecting service in constructor
 
     }
     ngOnInit(): void {
         this.users=this.userService.getUserData(); //getting data from service
-        //this.users=User_Data;
+        //this.users=User_Data; //getting data directly from data source
         //console.log(User_Data);
     }
 
