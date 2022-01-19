@@ -1,48 +1,21 @@
-<div class="row">
-    <div class="col-10 offset-2">
-        <div class="card">
-            <div class="card-header">
-                <h3 class="text-center">Employee Registration</h3>
-            </div>
-            <div class="card-body">
-                <form [formGroup]="empForm" (ngSubmit)="onRegister()">
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="fname">First Name:</label>
-                                <input type="text" class="form-control" formControlName="firstname" name="fname"/>
-                                <br>
-                                <div class="row" *ngIf="firstname.touched || firstname.valid">
-                                    <div class="col">
-                                        <p class="alert alert-danger" [hidden]="!firstname.hasError('required')">Enter first name.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="lname">Last Name:</label>
-                                <input type="text" class="form-control" formControlName="lastname" name="lname"/>
-                                <br>
-                                <div class="row" *ngIf="lastname.touched || lastname.valid">
-                                    <div class="col">
-                                        <p class="alert alert-danger" [hidden]="!lastname.hasError('required')">Enter last name.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        </div>
+<div class="container-sm">
+    <div class="row">
+        <div class="col-10 me-1 offset-1">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="text-center">Employee Registration</h3>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="empForm" (ngSubmit)="onRegister()">
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input class="form-control" type="text" formControlName="email" name="email"/>
+                                    <label for="fname">First Name:</label>
+                                    <input type="text" class="form-control" formControlName="firstname" name="fname"/>
                                     <br>
-                                    <div class="row" *ngIf="email.touched || email.valid">
+                                    <div class="row" *ngIf="firstname.touched || firstname.valid">
                                         <div class="col">
-                                            <p class="alert alert-danger" [hidden]="!email.hasError('required')">Enter email.</p>
-                                            <p class="alert alert-danger" [hidden]="!email.hasError('email')">Enter valid email.</p>
+                                            <p class="alert alert-danger" [hidden]="!firstname.hasError('required')">Enter first name.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -50,18 +23,12 @@
                             </div>
                             <div class="col">
                                 <div class="form-group">
-                                    <label for="country">Country:</label>
-                                    <select class="form-control" formControlName="country">
-                                        <option value="IND">India</option>
-                                        <option value="GER">Germany</option>
-                                        <option value="SRI">Sri Lanka</option>
-                                        <option value="USA">America</option>
-                                        <option value="EUR">Europe</option>
-                                    </select>
+                                    <label for="lname">Last Name:</label>
+                                    <input type="text" class="form-control" formControlName="lastname" name="lname"/>
                                     <br>
-                                    <div class="row" *ngIf="country.touched || country.valid">
+                                    <div class="row" *ngIf="lastname.touched || lastname.valid">
                                         <div class="col">
-                                            <p class="alert alert-danger" [hidden]="!country.hasError('required')">Select country.</p>
+                                            <p class="alert alert-danger" [hidden]="!lastname.hasError('required')">Enter last name.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -70,13 +37,13 @@
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group">
-                                        <label for="password">Password</label>
-                                        <input class="form-control" type="password" formControlName="password" name="password"/>
+                                        <label for="email">Email</label>
+                                        <input class="form-control" type="text" formControlName="email" name="email"/>
                                         <br>
-                                        <div class="row" *ngIf="password.touched || password.valid">
+                                        <div class="row" *ngIf="email.touched || email.valid">
                                             <div class="col">
-                                                <p class="alert alert-danger" [hidden]="!password.hasError('required')">Enter password.</p>
-                                                <p class="alert alert-danger" [hidden]="!password.hasError('minLength')">Password must be of minimum 6 characters.</p>
+                                                <p class="alert alert-danger" [hidden]="!email.hasError('required')">Enter email.</p>
+                                                <p class="alert alert-danger" [hidden]="!email.hasError('email')">Enter valid email.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -84,13 +51,18 @@
                                 </div>
                                 <div class="col">
                                     <div class="form-group">
-                                        <label for="cpassword">Confirm Password</label>
-                                        <input class="form-control" type="password" formControlName="confirmPassword" name="cpassword"/>
+                                        <label for="country">Country:</label>
+                                        <select class="form-control" formControlName="country">
+                                            <option value="IND">India</option>
+                                            <option value="GER">Germany</option>
+                                            <option value="SRI">Sri Lanka</option>
+                                            <option value="USA">America</option>
+                                            <option value="EUR">Europe</option>
+                                        </select>
                                         <br>
-                                        <div class="row" *ngIf="confirmPassword.touched || confirmPassword.valid">
+                                        <div class="row" *ngIf="country.touched || country.valid">
                                             <div class="col">
-                                                <p class="alert alert-danger" [hidden]="!confirmPassword.hasError('required')">Enter  confirm password.</p>
-                                                <p class="alert alert-danger" [hidden]="!confirmPassword.hasError('minLength')">Conifrm password must be of minimum 6 characters.</p>
+                                                <p class="alert alert-danger" [hidden]="!country.hasError('required')">Select country.</p>
                                             </div>
                                         </div>
                                     </div>
@@ -99,14 +71,14 @@
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="userType">User Type: </label>
-                                            <label><input type="radio" formControlName="userType" name="userType"/>Admin</label>
-                                            <label><input type="radio" name="userType"/>Employee</label>
+                                            <label for="password">Password</label>
+                                            <input class="form-control" type="password" formControlName="password" name="password"/>
                                             <br>
-                                            <div class="row" *ngIf="userType.touched || userType.valid">
+                                            <div class="row" *ngIf="password.touched || password.valid">
                                                 <div class="col">
-                                                    <!-- <p class="alert alert-danger" [hidden]="!userType.hasError('required')">Enter password.</p> -->
-                                                    <!-- <p class="alert alert-danger" [hidden]="!userType.hasError('minLength')">Password must be of minimum 6 characters.</p> -->
+                                                    <p class="alert alert-danger" [hidden]="!password.hasError('required')">Enter password.</p>
+                                                    <p class="alert alert-danger" [hidden]="!password.hasError('minLength')">Password must be of minimum 6 characters.</p>
+                                                    <p class="alert alert-danger" [hidden]="!password.hasError('hasExclamation')">Password must have exclamation(!) symbol.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -114,39 +86,84 @@
                                     </div>
                                     <div class="col">
                                         <div class="form-group">
-                                            <!-- <label for="skils">Skills</label> -->
-                                            <div formArrayName="skills">
-                                                <div *ngFor="let skill of skills.controls;index as i">
-                                                    <input type="text" class="form-control" [formControlName]="i"/> 
+                                            <label for="cpassword">Confirm Password</label>
+                                            <input class="form-control" type="password" formControlName="confirmPassword" name="cpassword"/>
+                                            <br>
+                                            <div class="row" *ngIf="confirmPassword.touched || confirmPassword.valid">
+                                                <div class="col">
+                                                    <p class="alert alert-danger" [hidden]="!confirmPassword.hasError('required')">Enter  confirm password.</p>
+                                                    <p class="alert alert-danger" [hidden]="!confirmPassword.hasError('minLength')">Conifrm password must be of minimum 6 characters.</p>
+                                                    <p class="alert alert-danger" [hidden]="!confirmPassword.hasError('comparePasswords')">Conifrm password must match password.</p>
                                                 </div>
                                             </div>
-                                            <br/>
-                                            {{skills.value | json}}
-                                            <button class="btn btn-dark" (click)="addSkill()">Add Skills</button>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label for="userType">User Type: &nbsp;&nbsp;</label>
+                                                <input type="radio" formControlName="userType" name="userType" value="Admin"/><label for="userType">Admin</label>
+                                                <input type="radio" name="userType" value="Employee" formControlName="userType"/><label for="userType">Employee</label>
+                                                <br>
+                                                <div class="row" *ngIf="userType.touched || userType.valid">
+                                                    <div class="col">
+                                                        <p class="alert alert-danger" [hidden]="!userType.hasError('required')">Select user type.</p>
+                                                        <!-- <p class="alert alert-danger" [hidden]="!userType.hasError('minLength')">Password must be of minimum 6 characters.</p> -->
+                                                    </div>
+                                                </div>
+                                            </div>
                                             
-                                            <br>
-                                            <!-- <div class="row" *ngIf="userType.touched || userType.valid">
-                                                <div class="col">
-                                                    <p class="alert alert-danger" [hidden]="!userType.hasError('required')">Enter password.</p>
-                                                    <p class="alert alert-danger" [hidden]="!userType.hasError('minLength')">Password must be of minimum 6 characters.</p> -->
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <!-- <label for="skils">Skills</label> -->
+                                                <div formArrayName="skills">
+                                                    <div *ngFor="let skill of skills.controls;index as i">
+                                                        <input type="text" class="form-control" [formControlName]="i"/> 
+                                                        <div class="row" *ngIf="skills.touched || skills.valid">
+                                                            <div class="col">
+                                                                <p class="alert alert-danger" [hidden]="!i.hasError('required')">Enter skills.</p>
+                                                                <!-- <p class="alert alert-danger" [hidden]="!userType.hasError('minLength')">Password must be of minimum 6 characters.</p> -->
+                                                            </div>
+                                                        </div> 
+                                                    </div>
+                                                </div>
+                                                <br/>
+                                                <!-- {{skills.value | json}} -->
+                                                <button class="btn btn-dark btn-block" (click)="addSkill()">Add Skills</button>
+                                                
+                                                <br>
+                                                <!-- <div class="row" *ngIf="skills.touched || skills.valid">
+                                                    <div class="col">
+                                                        <p class="alert alert-danger" [hidden]="!skills.hasError('required')">Enter skills.</p>
+                                                         <p class="alert alert-danger" [hidden]="!userType.hasError('minLength')">Password must be of minimum 6 characters.</p> -->
+                                                    <!-- </div> -->
                                                 <!-- </div> -->
-                                            <!-- </div> --> 
+                                            </div>
                                         </div>
-                                    </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <input type="checkbox" formControlName="tnC"/> I accept Terms and conditions.
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <button type="submit" class="btn btn-success">Register</button>
-                                            <button type="button" class="btn btn-warning" (click)="onReset()">Reset</button>
+                                        <div class="row">
+                                            <div class="col">
+                                                <input type="checkbox" formControlName="tnC"/> I accept Terms and conditions.
+                                                <div class="row" *ngIf="tnC.touched || tnC.valid">
+                                                    <div class="col">
+                                                        <p class="alert alert-danger" [hidden]="!tnC.hasError('required')">Accept the terms and conditions.</p>
+                                                        <!-- <p class="alert alert-danger" [hidden]="!userType.hasError('minLength')">Password must be of minimum 6 characters.</p> -->
+                                                    </div>
+                                                </div> 
+                                            </div>
                                         </div>
-                                    </div>
-                </form>
+                                        <div class="row">
+                                            <div class="col">
+                                                <br><br>
+                                                <button type="submit" class="btn btn-success" [disabled]="!empForm.valid">Register</button>
+                                                <button type="button" class="btn btn-warning" (click)="onReset()">Reset</button>
+                                            </div>
+                                        </div>
+                    </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+</div>

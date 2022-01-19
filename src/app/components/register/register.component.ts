@@ -23,7 +23,7 @@ export class RegisterComponent {
     Validators.required,
     Validators.minLength(6),
     RegisterComponent.hasExclamation,
-    //RegisterComponent.comparePasswords(this.password)
+    RegisterComponent.comparePasswords
   ]);
 
   courses=new FormArray([]);
@@ -70,7 +70,8 @@ export class RegisterComponent {
     return hasExcl?null:{hasExclamation:true}
   }
 
-  static comparePasswords(pwd:string,control:AbstractControl){
+  static comparePasswords(control:AbstractControl){
+    const pwd=control.root.get("password").value;
     const isSame=control.value===pwd?true:false;
     return isSame?null:{ComparePasswords:true}
   }

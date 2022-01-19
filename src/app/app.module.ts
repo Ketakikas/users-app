@@ -26,6 +26,7 @@ import { SortPipe } from './pipes/sort.pipe';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { EmployeeRegisterComponent } from './components/employee-register/employee-register.component';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,7 @@ import { EmployeeRegisterComponent } from './components/employee-register/employ
     BrowserModule,
     FormsModule,ReactiveFormsModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

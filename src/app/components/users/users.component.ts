@@ -2,6 +2,7 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import { User_Data } from 'src/app/model/mock';
 import { User } from 'src/app/model/user-model';
 import {Comment} from 'src/app/model/comments.model';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
     selector:"app-users",
@@ -21,10 +22,13 @@ import {Comment} from 'src/app/model/comments.model';
 })
 export class UsersComponent implements OnInit{
     users: User[];
-    
+    constructor(private userService:UserService){
+
+    }
     ngOnInit(): void {
-        this.users=User_Data;
-        console.log(User_Data);
+        this.users=this.userService.getUserData(); //getting data from service
+        //this.users=User_Data;
+        //console.log(User_Data);
     }
 
     onMoreInfo(user){

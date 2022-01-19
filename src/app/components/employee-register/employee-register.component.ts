@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-employee-register',
@@ -21,10 +21,12 @@ export class EmployeeRegisterComponent implements OnInit {
   password=new FormControl('',[
     Validators.required,
     Validators.minLength(6)
+    //EmployeeRegisterComponent.hasExclamation
   ]);
   confirmPassword=new FormControl('',[
     Validators.required,
-    Validators.minLength(6)
+    Validators.minLength(6),
+    EmployeeRegisterComponent.comparePasswords
   ]);
   country=new FormControl('',[
     Validators.required
@@ -32,7 +34,9 @@ export class EmployeeRegisterComponent implements OnInit {
   userType=new FormControl('',[
     Validators.required
   ]);
-  tnC=new FormControl('',[]);
+  tnC=new FormControl('',[
+    Validators.required
+  ]);
   //skills=new FormArray([]);
 
   empForm:FormGroup;
@@ -46,7 +50,9 @@ export class EmployeeRegisterComponent implements OnInit {
       country:this.country,
       userType:this.userType,
       tnC:this.tnC,
-      skills:new FormArray([])
+      skills:new FormArray([],[
+        Validators.required
+      ])
     })
   }
 
@@ -55,7 +61,7 @@ export class EmployeeRegisterComponent implements OnInit {
   }
 
   addSkill(){
-    this.skills.push(new FormControl(''));
+    this.skills.push(new FormControl('',[Validators.required]));
   }
 
   ngOnInit(): void {
@@ -65,5 +71,20 @@ export class EmployeeRegisterComponent implements OnInit {
   }
   onReset(){
     this.empForm.reset();
+  }
+  //custom validator for matching password and confirm password
+  static comparePasswords(control:AbstractControl){
+    let password:string="";
+    if(control.root.get("password")!==null){  
+    password=control.root.get("password").value;
+      console.log(password);
+  }
+    const isSame=control.value===password?true:false;
+    console.log("isSame:",isSame);
+    return isSame?null:{comparePasswords:true};
+  }
+  static hasExclamation(control:AbstractControl){
+    const hasExcl=control.value.indexOf("!")>=0;
+    return hasExcl?null:{hasExclamation:true}
   }
 }
