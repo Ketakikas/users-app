@@ -1,13 +1,21 @@
 <p class="display-4 text-center">My Posts</p>
 <div class="row">
-    <div *ngFor="let post of posts" class="col">
-        <div class="card">
+    <div class="col text-center">
+        <button class="btn btn-primary" (click)="showAddPost=!showAddPost">Add New Post</button>
+        <br><br>
+    </div>
+</div>
+<div class="row">
+    <div *ngFor="let post of posts" class="col-4">
+        <div class="card myCard" (click)="onClickPost(post.id)">
                 <div class="card-header">
                     {{post.title | uppercase}}
                 </div>
-                <div class="card-body">
+                <!-- <div class="card-body">
                     <p class="card-text">{{post.body}}</p>
-                </div>
+                </div> -->
             </div>
     </div>
 </div>
+<app-new-post (postEvent)="onAddPost($event)" *ngIf="showAddPost" (cancelEvent)="onCancel($event)"></app-new-post>
+<app-view-post *ngIf="showViewPost" [post]="selectedPost" (putEvent)="onPut($event)" (patchEvent)="onPatch($event)" (closeEvent)="onClose()" (deleteEvent)="onDelete($event)"></app-view-post>

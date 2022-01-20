@@ -34,6 +34,8 @@ import { CustomoperatorObervableComponent } from './components/customoperator-ob
 import { ObservableOperatorsComponent } from './components/observable-operators/observable-operators.component';
 import { SubjectsDemoComponent } from './components/subjects-demo/subjects-demo.component';
 import { PostsComponent } from './components/posts/posts.component';
+import { NewPostComponent } from './components/posts/new-post/new-post.component';
+import { ViewPostComponent } from './components/posts/view-post/view-post.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +68,9 @@ import { PostsComponent } from './components/posts/posts.component';
     CustomoperatorObervableComponent,
     ObservableOperatorsComponent,
     SubjectsDemoComponent,
-    PostsComponent
+    PostsComponent,
+    NewPostComponent,
+    ViewPostComponent
   ],
   imports: [
     BrowserModule,

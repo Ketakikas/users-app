@@ -1,0 +1,10 @@
+.myCard{
+    width: 80%;
+    margin: 8px;
+    cursor: pointer;
+}
+.myCard:hover{
+    background-color: gray;
+    color: white;
+    cursor: pointer;
+}

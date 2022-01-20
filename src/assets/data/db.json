@@ -7,34 +7,40 @@
       "published": true
     },
     {
-      "id": "101",
+      "id": "102",
       "title": "insurance",
-      "body": "to renew car insurance",
-      "published": false
-    },
-    {
-      "id": "101",
-      "title": "article",
-      "body": "to write article",
+      "body": "to renew car insurance by tomorrow",
       "published": true
     },
     {
-      "id": "101",
+      "id": "103",
+      "title": "New Article",
+      "body": "Complete article writing by eod.",
+      "published": false
+    },
+    {
+      "id": "104",
       "title": "shopping",
       "body": "to buy jeans",
       "published": false
     },
     {
-      "id": "Jer00-K",
-      "title": "Hello World",
-      "body": "Welcome to json server",
-      "published": true
-    },
-    {
-      "title": "Banking",
-      "body": "to visit bank",
+      "title": "Banking Work",
+      "body": "To visit bank today",
       "published": false,
       "id": "Fsetkcj"
+    },
+    {
+      "title": "Todays Study Agenda",
+      "body": "Study today angular",
+      "published": true,
+      "id": "TXrIPpy"
+    },
+    {
+      "id": "4e999780-b326-43e6-bcb4-5cb74246f1d1",
+      "title": "Benefits Planting",
+      "body": "plant a tree to get better future",
+      "published": true
     }
   ]
 }
