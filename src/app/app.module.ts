@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import {UsersComponent} from './components/users/users.component';
@@ -32,6 +33,7 @@ import { ObservableDemoComponent } from './components/observable-demo/observable
 import { CustomoperatorObervableComponent } from './components/customoperator-obervable/customoperator-obervable.component';
 import { ObservableOperatorsComponent } from './components/observable-operators/observable-operators.component';
 import { SubjectsDemoComponent } from './components/subjects-demo/subjects-demo.component';
+import { PostsComponent } from './components/posts/posts.component';
 
 @NgModule({
   declarations: [
@@ -63,12 +65,14 @@ import { SubjectsDemoComponent } from './components/subjects-demo/subjects-demo.
     ObservableDemoComponent,
     CustomoperatorObervableComponent,
     ObservableOperatorsComponent,
-    SubjectsDemoComponent
+    SubjectsDemoComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

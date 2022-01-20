@@ -1,0 +1,40 @@
+{
+  "posts": [
+    {
+      "id": "101",
+      "title": "grocery",
+      "body": "to buy the pulses",
+      "published": true
+    },
+    {
+      "id": "101",
+      "title": "insurance",
+      "body": "to renew car insurance",
+      "published": false
+    },
+    {
+      "id": "101",
+      "title": "article",
+      "body": "to write article",
+      "published": true
+    },
+    {
+      "id": "101",
+      "title": "shopping",
+      "body": "to buy jeans",
+      "published": false
+    },
+    {
+      "id": "Jer00-K",
+      "title": "Hello World",
+      "body": "Welcome to json server",
+      "published": true
+    },
+    {
+      "title": "Banking",
+      "body": "to visit bank",
+      "published": false,
+      "id": "Fsetkcj"
+    }
+  ]
+}
