@@ -16,8 +16,10 @@ export class PostsComponent implements OnInit {
 
   ngOnInit(): void {
     this.postService.getPosts()
-    .subscribe(posts=>{
-      this.posts=posts;
+    .subscribe({
+      next : posts => this.posts = posts,
+      error : err => {throw err},
+      complete :  () => console.log("COMPLETED")
     });
   }
   onAddPost(post:Post){

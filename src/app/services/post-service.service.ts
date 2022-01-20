@@ -32,7 +32,8 @@ export class PostServiceService {
   }
 
   editPost(post:Post){
-    return this.httpClient.patch(`${this.baseUrl}/posts/${post.id}`,post);
+    const {id,body,published}=post;
+    return this.httpClient.patch(`${this.baseUrl}/posts/${id}`,{body,published});
   }
   deletePost(id:string){
     return this.httpClient.delete(`${this.baseUrl}/posts/${id}`);

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import {UsersComponent} from './components/users/users.component';
@@ -36,6 +36,8 @@ import { SubjectsDemoComponent } from './components/subjects-demo/subjects-demo.
 import { PostsComponent } from './components/posts/posts.component';
 import { NewPostComponent } from './components/posts/new-post/new-post.component';
 import { ViewPostComponent } from './components/posts/view-post/view-post.component';
+import { ResponseInterceptor } from './services/response.interceptor';
+import { RequestInterceiptor } from './services/request.interceiptor';
 
 @NgModule({
   declarations: [
@@ -78,7 +80,17 @@ import { ViewPostComponent } from './components/posts/view-post/view-post.compon
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [UserService],
+  providers: [UserService,
+  {
+    provide:HTTP_INTERCEPTORS,
+    useClass:ResponseInterceptor,
+    multi:true
+  },
+  {
+    provide:HTTP_INTERCEPTORS,
+    useClass:RequestInterceiptor,
+    multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

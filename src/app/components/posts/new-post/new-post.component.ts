@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Post } from 'src/app/model/post-model';
 import { v4 } from 'uuid';
 import { PostsComponent } from '../posts.component';
@@ -10,9 +10,17 @@ import { PostsComponent } from '../posts.component';
   styleUrls: ['./new-post.component.css']
 })
 export class NewPostComponent implements OnInit {
-  title=new FormControl('',[]);
-  body=new FormControl('',[]);
-  published=new FormControl('',[]);
+  title=new FormControl('',[
+    Validators.required,
+    // Validators.minLength(3)
+  ]);
+  body=new FormControl('',[
+    Validators.required,
+    // Validators.minLength(6)
+  ]);
+  published=new FormControl('',[
+    Validators.required
+  ]);
   @Output()
   postEvent=new EventEmitter<Post>();
 
