@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Post } from '../model/post-model';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { Observable } from 'rxjs';
 export class PostServiceService {
 
   posts=[];
-  private baseUrl:string="http://localhost:3000";
+  private baseUrl:string=environment.JsonServerUrl;
   
   constructor(private httpClient:HttpClient) { }
 
