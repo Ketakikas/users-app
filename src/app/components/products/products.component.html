@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-4">
+        <ul class="list-group">
+            <li class="lsit-group-item">
+                <a [routerLink]="['overview/101/SamsungA225G']">Overview</a>
+            </li>
+            <li class="nav-item">
+                <a [routerLink]="['specification']" [queryParams]="{pageNo:99}">Specification</a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-8">
+        <router-outlet></router-outlet>
+    </div>    
+</div>

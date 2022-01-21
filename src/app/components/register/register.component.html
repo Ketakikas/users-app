@@ -40,7 +40,7 @@
                     <div class="form-group">
                         <button class="btn btn-dark" (click)="addBook()">Add Book</button>
                         <br/><br/>
-                        {{books.value | json}}
+                        <!-- {{books.value | json}} -->
                         <br/><br>
                         <div formArrayName="books">
                             <div *ngFor="let book of books.controls;index as i">

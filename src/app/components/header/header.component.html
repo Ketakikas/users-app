@@ -1,13 +1,35 @@
-<div class="nav navba-nav">
-    <ul class="nav">
-        <li class="nav-link">
-            <a [routerLink]="['login']" class="nav-item">Login</a>
-        </li>
-        <li class="nav-link">
-            <a [routerLink]="['users']" class="nav-item">Users</a>
-        </li>
-        <li class="nav-link">
-            <a [routerLink]="['notes']" class="nav-item">Notes App</a>
-        </li>
-    </ul>
-</div>
+<header>
+    <div class="row">
+        <div class="col-8">
+            <nav class="navbar">
+            <ul class="nav nav-tabs">
+                <li class="nav-link" *ngIf="!isAuthenticated()">
+                    <a [routerLink]="['login']" class="nav-item">Login</a>
+                </li>
+                <li class="nav-link" *ngIf="!isAuthenticated()">
+                    <a [routerLink]="['register']" class="nav-item">Register</a>
+                </li>
+                <li class="nav-link" *ngIf="isAuthenticated()">
+                    <a [routerLink]="['users']" class="nav-item">Users</a>
+                </li>
+                <li class="nav-link">
+                    <a [routerLink]="['products']" class="nav-item">Products</a>
+                </li>
+                <li class="nav-link" *ngIf="isAuthenticated()">
+                    <a [routerLink]="['notes']" class="nav-item">Notes App</a>
+                </li>
+                <li class="nav-link">
+                    <a [routerLink]="['posts']" class="nav-item">Posts App</a>
+                </li>
+                <li class="nav-link">
+                    <a [routerLink]="['lazy']" class="nav-item">Lazy Link</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+        <div class="col-4" *ngIf="isAuthenticated()">
+            <label class="username">Hi, {{loggedInUser}}</label>
+            <button class="btn btn-danger btn block" (click)="onLogOut()">Log Out</button>
+        </div>
+    </div>
+    </header>

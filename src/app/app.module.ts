@@ -41,6 +41,10 @@ import { RequestInterceiptor } from './services/request.interceiptor';
 import { RouterModule } from '@angular/router';
 import { APP_Routes } from './app.routes';
 import { HeaderComponent } from './components/header/header.component';
+import { ProductsComponent } from './components/products/products.component';
+import { OverviewComponent } from './components/products/overview/overview.component';
+import { SpecificationComponent } from './components/products/specification/specification.component';
+import { EmployeeModule } from './modules/employee/employee.module';
 
 @NgModule({
   declarations: [
@@ -76,14 +80,18 @@ import { HeaderComponent } from './components/header/header.component';
     PostsComponent,
     NewPostComponent,
     ViewPostComponent,
-    HeaderComponent
+    HeaderComponent,
+    ProductsComponent,
+    OverviewComponent,
+    SpecificationComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule.forRoot(APP_Routes)
+    RouterModule.forRoot(APP_Routes),
+    EmployeeModule // this module will load along with root module hence it is eagerly loaded
   ],
   providers: [UserService,
   {

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup,Validators,FormArray} from '@angular/forms';
+import { Router } from '@angular/router';
 import { stringify } from 'querystring';
+import { AuthServiceService } from 'src/app/services/auth-service.service';
 
 @Component({
   selector: 'app-register',
@@ -47,7 +49,9 @@ export class RegisterComponent {
 
   registrationForm:FormGroup;
   
-  constructor(private fb:FormBuilder) { 
+  constructor(private fb:FormBuilder,
+    private router:Router,
+    private authService:AuthServiceService) { 
     this.registrationForm=this.fb.group({
       username:this.username,
       password:this.password,
@@ -71,17 +75,30 @@ export class RegisterComponent {
   }
 
   static comparePasswords(control:AbstractControl){
-    const pwd=control.root.get("password").value;
+    let pwd:string="";
+    if(control.root.get("password")){
+      pwd=control.root.get("password").value;
+    }
     const isSame=control.value===pwd?true:false;
     return isSame?null:{ComparePasswords:true}
   }
 
   onRegister(){
     console.log(this.registrationForm);
+    //localStorage.setItem("loggedIn",JSON.stringify(this.registrationForm.value));
+    const { username, password } = this.registrationForm.value;
+    this.authService.onRegister(username, password)
+      .then((response : any) => {
+        if(response.message === "SUCCESS"){
+          this.router.navigate(['/login'])
+        }
+      });
   }
   
   onReset(){
     this.registrationForm.reset();
   }
-
+  shoudlLeave(){
+    return confirm("Are you want that you want to leave the page?")?true:false;
+  }
 }

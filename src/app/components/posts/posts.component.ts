@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { delay } from 'rxjs/operators';
 import { Post } from 'src/app/model/post-model';
+import { PostRosolveService } from 'src/app/services/guard/post-rosolve.service';
 import { PostServiceService } from 'src/app/services/post-service.service';
 
 @Component({
@@ -12,16 +15,24 @@ export class PostsComponent implements OnInit {
   showAddPost:boolean=false;
   showViewPost:boolean=false;
   selectedPost:Post={id:"",title:"",body:""};
-  constructor(private postService:PostServiceService) { }
+  constructor(private postService:PostServiceService,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
+     // this.getPosts();  
+     this.posts=this.route.snapshot.data["posts"];
+  }
+
+  getPosts(){
     this.postService.getPosts()
-    .subscribe({
+    .pipe(
+      delay(2000)
+    ).subscribe({
       next : posts => this.posts = posts,
       error : err => {throw err},
       complete :  () => console.log("COMPLETED")
     });
   }
+
   onAddPost(post:Post){
     console.log("Parent comp:",post);
       this.postService.createPost(post)
