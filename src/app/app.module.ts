@@ -38,6 +38,9 @@ import { NewPostComponent } from './components/posts/new-post/new-post.component
 import { ViewPostComponent } from './components/posts/view-post/view-post.component';
 import { ResponseInterceptor } from './services/response.interceptor';
 import { RequestInterceiptor } from './services/request.interceiptor';
+import { RouterModule } from '@angular/router';
+import { APP_Routes } from './app.routes';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -72,13 +75,15 @@ import { RequestInterceiptor } from './services/request.interceiptor';
     SubjectsDemoComponent,
     PostsComponent,
     NewPostComponent,
-    ViewPostComponent
+    ViewPostComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(APP_Routes)
   ],
   providers: [UserService,
   {
